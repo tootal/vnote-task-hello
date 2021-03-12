@@ -57,7 +57,18 @@
                 "en_US": "hello world (in new window)",
                 "zh_CN": "hello world (在新窗口)"
             },
-            "command": "start cmd '/c echo hello world & pause'"
+            "windows": {
+                "command": "start cmd '/c echo hello world & pause'"
+            },
+            "osx": {
+                "command": "chmod u+x hello.sh && open -a Terminal.app ./hello.sh",
+                "options": {
+                    "cwd": "${taskDirname}"
+                }
+            },
+            "linux": {
+                "command": "/bin/bash -c 'echo hello world & pause'"
+            }
         },
         {
             "label": {
