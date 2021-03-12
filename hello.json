@@ -1,0 +1,133 @@
+{
+    "label": {
+        "en_US": "Hello",
+        "zh_CN": "你好"
+    },
+    "icon": "tasks-solid.svg",
+    "command": "echo",
+    "tasks": [
+        {
+            "label": {
+                "en_US": "Cat",
+                "zh_CN": "猫"
+            },
+            "icon": "cat-solid.svg",
+            "shortcut": "Alt+H, C",
+            "args": [
+                {
+                    "en_US": "Hello cat!",
+                    "zh_CN": "你好，猫！"
+                }
+            ]
+        },
+        {
+            "label": {
+                "en_US": "Dove",
+                "zh_CN": "鸽子"
+            },
+            "icon": "dove-solid.svg",
+            "shortcut": "Alt+H, D",
+            "args": [
+                {
+                    "en_US": "Hello dove!",
+                    "zh_CN": "你好，鸽子！"
+                }
+            ]
+        },
+        {
+            "label": {
+                "en_US": "Fish",
+                "zh_CN": "鱼"
+            },
+            "icon": "fish-solid.svg",
+            "shortcut": "Alt+H, F",
+            "args": [
+                {
+                    "en_US": "Hello fish!",
+                    "zh_CN": "你好，鱼！"
+                }
+            ]
+        },
+        {
+            "label": "hello world",
+            "command": "echo \"hello world!\""
+        },
+        {
+            "label": {
+                "en_US": "hello world (in new window)",
+                "zh_CN": "hello world (在新窗口)"
+            },
+            "command": "start cmd '/c echo hello world & pause'"
+        },
+        {
+            "label": {
+                "en_US": "Input",
+                "zh_CN": "输入"
+            },
+            "icon": "input.svg",
+            "command": "echo '${input:what}'",
+            "inputs": [
+                {
+                    "id": "what",
+                    "description": {
+                        "en_US": "Input something, it will show in output panel.",
+                        "zh_CN": "输入一些东西，会显示在输出面板上。"
+                    }
+                }
+            ]
+        },
+        {
+            "label": {
+                "en_US": "Easy math problem",
+                "zh_CN": "简单数学题"
+            },
+            "icon": "select.svg",
+            "command": "if (\"${input:ans}\" -eq \"100\") { echo $env:correct } else { echo $env:wrong }",
+            "options": {
+                "env": {
+                    "correct": {
+                        "en_US": "Correct!",
+                        "zh_CN": "答案正确!"
+                    },
+                    "wrong": {
+                        "en_US": "Wrong answer, correct answer is 100.",
+                        "zh_CN": "答案错误，正确答案是100."
+                    }
+                }
+            },
+            "inputs": [
+                {
+                    "id": "ans",
+                    "type": "pickString",
+                    "description": "10*10/6*6=?",
+                    "options": ["1", "10", "100", "1000"]
+                }
+            ]
+        },
+        {
+            "label": {
+                "en_US": "Hard Math Problem",
+                "zh_CN": "困难数学题"
+            },
+            "command": "./hard-math-problem.ps1",
+            "options": {
+                "cwd": "${taskDirname}",
+				"env": {
+					"title": {
+						"en_US": "Hard Math Problem",
+						"zh_CN": "困难数学题"
+					},
+					"intro": {
+						"en_US": "There is a hidden integer from interval [2, 100]. Your task is to say if the hidden number is prime or composite. <br> You can ask up to 20 queries about divisors of the hidden number. In each query you should print an integer from interval `[2, 100]`. The system will tell you whether the number you asked is a divisor of the hidden number. <br>Note: it isn't necessary to know the exact value of the hidden number.",
+						"zh_CN": "现在有一个 [2, 100] 范围内隐藏的整数，你的任务是判断它是一个质数还是合数。 <br> 你可以询问最多20次关于隐藏数的因子信息。每次询问你可以输入一个 [2, 100] 范围内的整数，系统会告诉你询问的数是否为隐藏的数的因子。 <br> 注意：你可以不需要知道隐藏数字的确切值。"
+					}
+				},
+                "shell": {
+                    "args": [
+                        "-Command"
+                    ]
+                }
+            }
+        }
+    ]
+}
