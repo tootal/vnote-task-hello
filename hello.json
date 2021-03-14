@@ -120,25 +120,54 @@
                 "en_US": "Hard Math Problem",
                 "zh_CN": "困难数学题"
             },
-            "command": "./hard-math-problem.ps1",
+            "windows": {
+                "command": "./hard.ps1"
+            },
             "options": {
-                "cwd": "${taskDirname}",
-				"env": {
-					"title": {
+                "cwd": "${taskDirname}"
+            },
+            "inputs": [
+                {
+                    "id": "input_ask",
+                    "type": "promptString",
+                    "description": {
+                        "en_US": "",
+                        "zh_CN": "你可以在下方输入 [2, 100] 范围内的整数进行询问"
+                    }
+                }
+            ],
+            "messages": [
+                {
+                    "id": "msg_intro",
+                    "type": "information",
+                    "title": {
 						"en_US": "Hard Math Problem",
 						"zh_CN": "困难数学题"
 					},
-					"intro": {
-						"en_US": "There is a hidden integer from interval [2, 100]. Your task is to say if the hidden number is prime or composite. <br> You can ask up to 20 queries about divisors of the hidden number. In each query you should print an integer from interval `[2, 100]`. The system will tell you whether the number you asked is a divisor of the hidden number. <br>Note: it isn't necessary to know the exact value of the hidden number.",
-						"zh_CN": "现在有一个 [2, 100] 范围内隐藏的整数，你的任务是判断它是一个质数还是合数。 <br> 你可以询问最多20次关于隐藏数的因子信息。每次询问你可以输入一个 [2, 100] 范围内的整数，系统会告诉你询问的数是否为隐藏的数的因子。 <br> 注意：你可以不需要知道隐藏数字的确切值。"
-					}
-				},
-                "shell": {
-                    "args": [
-                        "-Command"
+					"text": {
+						"en_US": "There is a hidden integer from interval [2, 100]. Your task is to say if the hidden number is prime or composite. <br> You can ask up to 20 queries about divisors of the hidden number. In each query you should print an integer from interval `[2, 100]`. The system will tell you whether the number you asked is a divisor of the hidden number.",
+						"zh_CN": "现在有一个 [2, 100] 范围内隐藏的整数，你的任务是判断它是一个质数还是合数。 <br> 你可以询问最多20次关于隐藏数的因子信息。每次询问你可以输入一个 [2, 100] 范围内的整数，系统会告诉你询问的数是否为隐藏的数的因子。"
+					},
+                    "detailedText": {
+						"en_US": "Note: it isn't necessary to know the exact value of the hidden number.",
+						"zh_CN": "注意：你可以不需要知道隐藏数字的确切值。"
+                    },
+                    "buttons": [
+                        {
+                            "text": {
+                                "en_US": "Start",
+                                "zh_CN": "开始"
+                            }
+                        },
+                        {
+                            "text": {
+                                "en_US": "Close",
+                                "zh_CN": "关闭"
+                            }
+                        }
                     ]
                 }
-            }
+            ]
         }
     ]
 }
